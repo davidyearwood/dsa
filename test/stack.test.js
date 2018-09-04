@@ -1,5 +1,6 @@
 const Stack = require('../stack');
 const assert = require('chai').assert; 
+const isDelimiterBalance = require('../isDelimiterBalance');
 var s; 
 
 // THIS IS MESSING WITH THE PRIVATE VARIABLES
@@ -23,4 +24,16 @@ describe('The Stack Class', () => {
         assert.strictEqual(s._stack[s._top], 12); 
     });
 
+});
+
+describe('isDelimiterBalance()', () => {
+    test('returns false when given an imbalance delimiter set', () => {
+        var imbalance = "a{b(c]d}e";
+        assert.strictEqual(isDelimiterBalance(imbalance), false);
+    });
+
+    test('returns true when given a balance delimiter set', () => {
+        var balance = "a{b[c]d}e";
+        assert.strictEqual(isDelimiterBalance(balance), true); 
+    })
 });
