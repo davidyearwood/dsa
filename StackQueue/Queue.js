@@ -1,13 +1,13 @@
 class Queue {
     constructor() {
         this._head = 0; 
-        this._tail = 0; 
+        this._tail = -1; 
         this._size = 0; 
         this._queue = []; 
     }
 
     insert(n) { 
-        this._queue[this._tail++] = n;
+        this._queue[++this._tail] = n;
         return ++this._size;  
     }
 
