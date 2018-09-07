@@ -76,6 +76,7 @@ class Deque {
         return temp; 
 
     }
+    
     isFull() {
         return this._sizeLimit === this._dequeCount;
     }
