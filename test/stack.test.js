@@ -3,8 +3,6 @@ const assert = require('chai').assert;
 const isDelimiterBalance = require('../isDelimiterBalance');
 var s; 
 
-// THIS IS MESSING WITH THE PRIVATE VARIABLES
-// DO NOT DO THIS IN PRACTICE
 function initStack() {
     var s = new Stack(10);
     s._stack = [20, 40, 60, 80];
