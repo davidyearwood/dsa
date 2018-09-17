@@ -42,12 +42,4 @@ function isCloseDelimiter(d) {
     return d === ")" || d === "]" || d === "}";
 }
 
-// Text book way 
-// function check(string) {
-//     var stack = new Stack(string.length);
-
-//     for (var i = 0; i < string.length; i++) {
-
-//     }
-// }
 module.exports = isDelimiterBalance;
