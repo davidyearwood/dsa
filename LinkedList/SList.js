@@ -18,10 +18,38 @@ class SList {
         let temp = this.head.next;
         this.head.next = null;
         this.head = temp;
+
         this.size--;
     }
 
-    printItems(item) {
+    deleteEnd() {
+        var runner = this.head; 
+        var pos = this.head.next; 
+
+        if (this.getSize() === 0 || this.head === null) {
+            throw new Error("List is empty.")
+        }
+
+        if (pos === null) {
+            this.head = null; 
+            return --this.size;
+        }
+
+        while(pos !== null) {
+            if (pos.next === null) {
+                runner.next = null;
+                this.size--; 
+                break;
+            }
+
+            runner = pos; 
+            pos = pos.next; 
+        }
+
+        return this.size; 
+    }
+
+    printItems() {
         var node = this.head;
         var output = [];
         while (node) {
