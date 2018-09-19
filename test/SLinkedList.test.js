@@ -86,8 +86,6 @@ describe('Singly Linked Lists', () => {
             list.insertFront(13);
             list.insertFront(9);
 
-            console.log(list.printItems());
-
             list.deleteEnd();
 
             assert.strictEqual(list.head.next.next.next, null);
@@ -104,6 +102,39 @@ describe('Singly Linked Lists', () => {
     });
 
     describe('insertEnd(item)', () => {
-        
+        test('should add an item to the list even if the list is empty', () => {
+            var list = new SList();
+
+            list.insertEnd(22);
+
+            assert.strictEqual(list.tail.item, 22);
+        });
+
+        test('should add an item to the end of the list', () => {
+            var list = new SList();
+
+            list.insertFront(22);
+            list.insertFront(42);
+            list.insertFront(24);
+            list.insertFront(32);
+
+            list.insertEnd(33);
+
+            assert.strictEqual(list.tail.item, 33);
+        });
+
+        test('should uphold the size invariant', () => {
+            var list = new SList();
+
+            list.insertFront(22);
+            list.insertFront(42);
+            list.insertFront(24);
+            list.insertFront(32);
+
+            list.insertEnd(33);
+
+            console.log(list.printItems());
+            assert.strictEqual(list.getSize(), 5);
+        })
     });
 });
