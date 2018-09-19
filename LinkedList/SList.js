@@ -27,9 +27,11 @@ class SList {
     }
 
     deleteFront() {
-        if (this.getSize() === 0 || this.head === null) {
+        if (this.isEmpty()) {
             throw new Error("List is empty");
         }
+
+        var output = this.head.item;
 
         this.head = this.head.next;
         this.size--;
@@ -37,6 +39,8 @@ class SList {
         if (this.getSize() === 0) {
             this.tail = this.head;
         }
+
+        return output;
     }
 
     deleteEnd() {
@@ -75,6 +79,26 @@ class SList {
         }
 
         return output.join(", ");
+    }
+
+    first() {
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        return this.head.item;
+    }
+
+    last() {
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        return this.tail.item;
+    }
+
+    isEmpty() {
+        return this.getSize() === 0 || this.head === null;
     }
 
     getSize() {
