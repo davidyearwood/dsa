@@ -21,6 +21,17 @@ describe('Singly Linked Lists', () => {
 
             assert.strictEqual(list.getSize(), 2);
         });
+
+        test('tail should point at the end of the list', () => {
+            var list = new SList();
+            list.insertFront(22);
+            list.insertFront(512);
+            list.insertFront(23);
+            list.insertFront(35);
+            list.insertFront(53);
+
+            assert.strictEqual(list.tail.item, 22);
+        });
     });
 
     describe('deleteFront()', () => {
@@ -45,6 +56,15 @@ describe('Singly Linked Lists', () => {
 
             assert.strictEqual(list.getSize(), 2);
         });
+
+        test('tail should point to null if the last item in the list is removed', () => {
+            var list = new SList();
+            list.insertFront(32);
+            list.deleteFront();
+
+            assert.strictEqual(list.tail, null);
+        });
+
     });
 
     describe('deleteEnd()', () => {
@@ -81,7 +101,9 @@ describe('Singly Linked Lists', () => {
 
             assert.strictEqual(list.head, null);
         });
+    });
 
-
+    describe('insertEnd(item)', () => {
+        
     });
 });

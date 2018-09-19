@@ -4,22 +4,38 @@ class SList {
     constructor() {
         this.size = 0;
         this.head = null;
+        this.tail = null; 
     }
 
     insertFront(item) {
         this.head = new SListNode(item, this.head);
         this.size++;
+        if (this.getSize() === 1) {
+            this.tail = this.head; 
+        }
+    }
+
+    insertEnd(item) {
+        var node = new SListNode(item, null); 
+        tail.next = node; 
+        tail = node; 
+        size++;         
     }
 
     deleteFront() {
         if (this.getSize() === 0) {
             throw new Error("List is empty");
         }
+
         let temp = this.head.next;
         this.head.next = null;
         this.head = temp;
 
         this.size--;
+
+        if (this.getSize() === 0) {
+            this.tail = this.head; 
+        }
     }
 
     deleteEnd() {
