@@ -1,6 +1,6 @@
 class SibTree {
-    constructor(root) {
-        this.root = root;
+    constructor() {
         this.size = 0;
+        this.root = null;  
     }
-}
+} 

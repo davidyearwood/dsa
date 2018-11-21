@@ -6,15 +6,42 @@ class SibTreeNode {
         this.nextSibling = nextSibling;
     }
 
-    preorder(visit) {
-        visit(this); 
+    postorder(visit) {
+
         if (this.firstChild !== null) {
-            this.firstChild.preorder(visit); 
+            this.firstChild.postorder(visit);
         }
 
         if (this.nextSibling !== null) {
-            this.nextSibling.preorder(visit); 
+            this.nextSibling.postorder(visit);
         }
+
+        visit(this);
+    }
+
+    inorder(visit) {
+        if (this.firstChild !== null) {
+            this.firstChild.inorder(visit);
+        }
+
+        visit(this);
+
+        if (this.nextSibling !== null) {
+            this.nextSibling.inorder(visit);
+        }
+    }
+    preorder(visit) {
+        visit(this);
+
+        if (this.firstChild !== null) {
+            this.firstChild.preorder(visit);
+        }
+
+        if (this.nextSibling !== null) {
+            this.nextSibling.preorder(visit);
+        }
+
+
     }
 
     // the length of the path from n to root 
@@ -43,3 +70,5 @@ class SibTreeNode {
         return this.parent === null;
     }
 }
+
+module.exports = SibTreeNode;
